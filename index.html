@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mostra Científica 2026 - Abreviações</title>
-    <!-- Google Fonts: Inter -->
+    <!-- Google Fonts: Nunito -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="assets/css/styles.css">
-    
+
     <!-- PWA Manifest & Theme Color -->
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#0f172a">
+    <meta name="theme-color" content="#1E2460">
 </head>
 
 <body>
@@ -35,7 +35,7 @@
                 <h1 class="main-title">English Expressions</h1>
                 <p class="subtitle">Teste seus conhecimentos em expressões e abreviações em inglês.</p>
 
-                <div class="info-card">
+                <div class="card">
                     <div class="info-item">
                         <span class="info-icon">⏱️</span>
                         <div class="info-text">
@@ -71,15 +71,15 @@
             <div class="content quiz-content">
                 <div class="quiz-header">
                     <h2>Questão <span id="current-question-num">01</span><span class="total-questions">/10</span></h2>
-                    <div class="progress-bar-container">
-                        <div id="quiz-progress-bar" class="progress-bar"></div>
+                    <div class="progress-bar">
+                        <div id="quiz-progress-bar" class="progress-bar__fill"></div>
                     </div>
                     <div class="timer-container">
                         Tempo: <span id="timer-text">10</span>s
                     </div>
                 </div>
 
-                <div class="question-card">
+                <div class="card question-card">
                     <h3>O que significa <span id="question-abbreviation" class="highlight-abbr">LOL</span> em inglês?
                     </h3>
                 </div>
@@ -102,7 +102,7 @@
             </header>
 
             <div class="content results-content">
-                <div class="result-card">
+                <div class="card result-card">
                     <div class="chip">QUIZ FINALIZADO</div>
                     <h1 id="result-title" class="result-title">Parabéns!</h1>
                     <p id="result-desc" class="result-desc">Você conhece muito bem as abreviações em inglês! Seu
@@ -111,15 +111,15 @@
                     <div class="action-buttons">
                         <button id="btn-play-again" class="btn-primary">↻ Jogar Novamente</button>
                         <button id="btn-go-home" class="btn-secondary">⌂ Voltar ao Início</button>
-                        <button id="btn-go-learn" class="btn-outline">📖 Ver Base de Abreviações</button>
+                        <button id="btn-go-learn" class="btn-secondary">📖 Ver Base de Abreviações</button>
                     </div>
                 </div>
 
                 <div class="score-card">
                     <div class="score-label">SUA PONTUAÇÃO</div>
                     <div class="score-value"><span id="final-score">8</span><span class="score-total">/10</span></div>
-                    <div class="progress-bar-container dark-bg">
-                        <div id="score-progress-bar" class="progress-bar golden"></div>
+                    <div class="progress-bar">
+                        <div id="score-progress-bar" class="progress-bar__fill"></div>
                     </div>
                 </div>
             </div>
@@ -152,13 +152,13 @@
 
         <!-- ================= BOTTOM NAVIGATION ================= -->
         <nav class="bottom-nav">
-            <button class="nav-item" data-target="screen-start">
+            <button class="bottom-nav__item" data-target="screen-start">
                 <span class="nav-icon">⌂</span>
                 <span class="nav-label">Home</span>
             </button>
-            <button class="nav-item" data-target="screen-learn">
+            <button class="bottom-nav__item" data-target="screen-learn">
                 <span class="nav-icon">📖</span>
-                <span class="nav-label">Learn Abbrevs</span>
+                <span class="nav-label">Library</span>
             </button>
         </nav>
     </div>

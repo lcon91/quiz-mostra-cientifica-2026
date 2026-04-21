@@ -9,7 +9,7 @@ let isAnswered = false;
 
 // DOM Elements
 const screens = document.querySelectorAll('.screen');
-const navItems = document.querySelectorAll('.nav-item');
+const navItems = document.querySelectorAll('.bottom-nav__item');
 
 // Quiz Elements
 const currentQuestionNumEl = document.getElementById('current-question-num');
@@ -38,7 +38,7 @@ function init() {
     populateCatalog();
 
     // Select Home nav by default
-    document.querySelector('.nav-item[data-target="screen-start"]').classList.add('active');
+    document.querySelector('.bottom-nav__item[data-target="screen-start"]').classList.add('active');
 }
 
 // Screen Navigation
@@ -135,9 +135,9 @@ function loadQuestion() {
 
     shuffledOptions.forEach((optText, index) => {
         const btn = document.createElement('button');
-        btn.className = 'option-btn';
+        btn.className = 'option';
         btn.innerHTML = `
-            <div class="option-letter">${letters[index]}</div>
+            <div class="option__letter">${letters[index]}</div>
             <div class="option-text">${optText}</div>
         `;
 
@@ -173,7 +173,7 @@ function showCorrectAnswer(correctOption = null) {
     const q = quizQuestions[currentQuestionIndex];
     const correctText = correctOption || q.meaning;
 
-    const optionBtns = document.querySelectorAll('.option-btn');
+    const optionBtns = document.querySelectorAll('.option');
     optionBtns.forEach(btn => {
         if (btn.querySelector('.option-text').textContent === correctText) {
             btn.classList.add('correct');
@@ -183,7 +183,7 @@ function showCorrectAnswer(correctOption = null) {
 }
 
 function disableAllOptions() {
-    const optionBtns = document.querySelectorAll('.option-btn');
+    const optionBtns = document.querySelectorAll('.option');
     optionBtns.forEach(btn => btn.disabled = true);
 }
 
@@ -259,7 +259,7 @@ function populateCatalog(filterText = '') {
 
     filtered.forEach((q, index) => {
         const card = document.createElement('div');
-        card.className = `catalog-card`;
+        card.className = `card card--accent-left`;
 
         card.innerHTML = `
             <div class="catalog-header">
