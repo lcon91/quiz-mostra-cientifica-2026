@@ -4,7 +4,7 @@ let quizQuestions = [];
 let currentQuestionIndex = 0;
 let score = 0;
 let timerInterval = null;
-let timeLeft = 10;
+let timeLeft = 20;
 let isAnswered = false;
 
 // DOM Elements
@@ -207,7 +207,7 @@ function showResults() {
         resultTitle.textContent = "Não se preocupe!";
         resultDesc.textContent = "Você ainda pode melhorar. Aproveite para consultar a nossa Base de Abreviações e aprender muito mais!";
     } else {
-        resultTitle.textContent = "Parabéns!";
+        resultTitle.textContent = "Good Job!";
         resultDesc.textContent = "Você conhece muito bem as abreviações em inglês! Seu desempenho nesta mostra foi excepcional.";
     }
 
@@ -220,7 +220,7 @@ function showResults() {
 // Timer Logic
 function startTimer() {
     stopTimer(); // Ensure clear
-    timeLeft = 10;
+    timeLeft = 20;
     timerText.textContent = timeLeft;
 
     timerInterval = setInterval(() => {
@@ -259,9 +259,7 @@ function populateCatalog(filterText = '') {
 
     filtered.forEach((q, index) => {
         const card = document.createElement('div');
-        // Make every alternating card slightly different or specifically the first one dark based on inspiration
-        // For variety, let's make 1 in 5 cards dark
-        card.className = `catalog-card ${index % 5 === 0 ? 'dark' : ''}`;
+        card.className = `catalog-card`;
 
         card.innerHTML = `
             <div class="catalog-header">

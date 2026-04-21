@@ -342,18 +342,6 @@ questions.push(
         ]
     },
     {
-        abbreviation: "IIRC",
-        meaning: "If I Recall Correctly",
-        description: "Indica memória incerta",
-        examples: "IIRC 2020|IIRC works",
-        options: [
-            "If I Recall Correctly",
-            "Initialize Internal Runtime Core",
-            "Inspect Input Resource Config",
-            "Import Index Registry Cache"
-        ]
-    },
-    {
         abbreviation: "ATM",
         meaning: "At The Moment",
         description: "Indica algo acontecendo agora",
@@ -501,18 +489,6 @@ questions.push(
         ]
     },
     {
-        abbreviation: "ILY",
-        meaning: "I Love You",
-        description: "Expressão de afeto",
-        examples: "ILY ❤️|ILY always",
-        options: [
-            "I Love You",
-            "Initialize Local Yield",
-            "Inspect Layer Yield",
-            "Insert Log Year"
-        ]
-    },
-    {
         abbreviation: "XOXO",
         meaning: "Hugs And Kisses",
         description: "Expressão de carinho",
@@ -522,18 +498,6 @@ questions.push(
             "Execute And Keep Operations",
             "Expand All Key Objects",
             "Export And Know Output"
-        ]
-    },
-    {
-        abbreviation: "CU",
-        meaning: "See You",
-        description: "Despedida informal",
-        examples: "CU later|CU soon",
-        options: [
-            "See You",
-            "Create User",
-            "Control Unit",
-            "Compute Usage"
         ]
     },
     {
@@ -635,30 +599,6 @@ questions.push(
         ]
     },
     {
-        abbreviation: "QA",
-        meaning: "Quality Assurance",
-        description: "Controle de qualidade",
-        examples: "QA test|QA team",
-        options: [
-            "Quality Assurance",
-            "Query Analysis",
-            "Quick Access",
-            "Queue Allocation"
-        ]
-    },
-    {
-        abbreviation: "BUG",
-        meaning: "Software Error",
-        description: "Erro no sistema",
-        examples: "Fix BUG|Found BUG",
-        options: [
-            "Software Error",
-            "Build User Graph",
-            "Base Utility Gateway",
-            "Binary Update Group"
-        ]
-    },
-    {
         abbreviation: "FIX",
         meaning: "Correction",
         description: "Correção de erro",
@@ -669,5 +609,5 @@ questions.push(
             "Fast Input Exchange",
             "Function Internal X"
         ]
-    }
+    },
 );

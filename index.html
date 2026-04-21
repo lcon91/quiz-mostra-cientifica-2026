@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body>
     <div id="app">
         <!-- TOP BAR (Shared mostly, but changes per screen slightly. We will handle via classes or distinct headers per view) -->
@@ -19,16 +21,16 @@
         <section id="screen-start" class="screen active">
             <header class="top-bar">
                 <div class="logo-container">
-                    <img src="contemporaneo-logo.jpg" alt="Logo Contemporâneo" class="logo-icon">
+                    <img src="assets/imgs/contemporaneo-logo.jpg" alt="Logo Contemporâneo" class="logo-icon">
                     <span class="logo-text">Mostra Científica 2026</span>
                 </div>
             </header>
-            
+
             <div class="content start-content">
-                <div class="chip">QUIZ RÁPIDO</div>
-                <h1 class="main-title">Mostra Científica 2026</h1>
-                <p class="subtitle">Teste seus conhecimentos em ciência e tecnologia. Responda às perguntas e ganhe seu certificado de participação.</p>
-                
+                <div class="chip">Quiz Rápido</div>
+                <h1 class="main-title">English Expressions</h1>
+                <p class="subtitle">Teste seus conhecimentos em expressões e abreviações em inglês.</p>
+
                 <div class="info-card">
                     <div class="info-item">
                         <span class="info-icon">⏱️</span>
@@ -44,13 +46,6 @@
                             <span>Múltipla escolha</span>
                         </div>
                     </div>
-                    <div class="info-item">
-                        <span class="info-icon">🏆</span>
-                        <div class="info-text">
-                            <strong>Premiação</strong>
-                            <span>Certificado Digital ao concluir</span>
-                        </div>
-                    </div>
                 </div>
 
                 <button id="btn-start" class="btn-primary">
@@ -64,7 +59,7 @@
         <section id="screen-quiz" class="screen">
             <header class="top-bar">
                 <div class="logo-container">
-                    <img src="contemporaneo-logo.jpg" alt="Logo Contemporâneo" class="logo-icon">
+                    <img src="assets/imgs/contemporaneo-logo.jpg" alt="Logo Contemporâneo" class="logo-icon">
                     <span class="logo-text">Mostra Científica 2026</span>
                 </div>
             </header>
@@ -81,7 +76,8 @@
                 </div>
 
                 <div class="question-card">
-                    <h3>O que significa <span id="question-abbreviation" class="highlight-abbr">LOL</span> em inglês?</h3>
+                    <h3>O que significa <span id="question-abbreviation" class="highlight-abbr">LOL</span> em inglês?
+                    </h3>
                 </div>
 
                 <div id="options-container" class="options-container">
@@ -96,7 +92,7 @@
         <section id="screen-results" class="screen">
             <header class="top-bar">
                 <div class="logo-container">
-                    <img src="contemporaneo-logo.jpg" alt="Logo Contemporâneo" class="logo-icon">
+                    <img src="assets/imgs/contemporaneo-logo.jpg" alt="Logo Contemporâneo" class="logo-icon">
                     <span class="logo-text">Mostra Científica 2026</span>
                 </div>
             </header>
@@ -105,8 +101,9 @@
                 <div class="result-card">
                     <div class="chip">QUIZ FINALIZADO</div>
                     <h1 id="result-title" class="result-title">Parabéns!</h1>
-                    <p id="result-desc" class="result-desc">Você conhece muito bem as abreviações em inglês! Seu desempenho acadêmico nesta mostra foi excepcional.</p>
-                    
+                    <p id="result-desc" class="result-desc">Você conhece muito bem as abreviações em inglês! Seu
+                        desempenho acadêmico nesta mostra foi excepcional.</p>
+
                     <div class="action-buttons">
                         <button id="btn-play-again" class="btn-primary">↻ Jogar Novamente</button>
                         <button id="btn-go-home" class="btn-secondary">⌂ Voltar ao Início</button>
@@ -128,14 +125,15 @@
         <section id="screen-learn" class="screen">
             <header class="top-bar">
                 <div class="logo-container">
-                    <img src="contemporaneo-logo.jpg" alt="Logo Contemporâneo" class="logo-icon">
+                    <img src="assets/imgs/contemporaneo-logo.jpg" alt="Logo Contemporâneo" class="logo-icon">
                     <span class="logo-text">Mostra Científica 2026</span>
                 </div>
             </header>
 
             <div class="content learn-content">
                 <h1 class="learn-title">Base de <span class="highlight-text">Abreviações</span></h1>
-                <p class="learn-subtitle">Explore o dicionário essencial do mundo digital acadêmico. Domine os termos mais utilizados em comunicações globais.</p>
+                <p class="learn-subtitle">Explore o dicionário essencial do mundo digital acadêmico. Domine os termos
+                    mais utilizados em comunicações globais.</p>
 
                 <div class="search-bar">
                     <span class="search-icon">🔍</span>
@@ -156,13 +154,14 @@
             </button>
             <button class="nav-item" data-target="screen-learn">
                 <span class="nav-icon">📖</span>
-                <span class="nav-label">Library</span>
+                <span class="nav-label">Learn Abbrevs</span>
             </button>
         </nav>
     </div>
 
     <!-- Scripts -->
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
+
 </html>

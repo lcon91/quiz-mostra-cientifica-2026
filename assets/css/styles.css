@@ -2,21 +2,21 @@
    VARIABLES & RESET
    ========================================= */
 :root {
-    --bg-color: #f8fafc;
-    --card-bg: #ffffff;
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
     
-    --primary-dark: #0f172a; /* Navy Blue */
-    --primary-light: #1e293b; 
+    --primary-dark: #3b82f6;
+    --primary-light: #60a5fa; 
     
     --accent-gold: #f59e0b;
     --accent-gold-dark: #d97706;
     
-    --text-main: #334155;
-    --text-muted: #64748b;
-    --text-light: #f8fafc;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --text-light: #ffffff;
 
-    --border-color: #e2e8f0;
-    --border-hover: #cbd5e1;
+    --border-color: #334155;
+    --border-hover: #475569;
 
     --success-color: #10b981;
     --error-color: #ef4444;
@@ -50,7 +50,7 @@ body {
    ========================================= */
 #app {
     width: 100%;
-    max-width: 480px; /* Mobile width constraint */
+    max-width: 800px; /* Adapts to tablet/desktop */
     background-color: var(--bg-color);
     position: relative;
     display: flex;
@@ -86,7 +86,7 @@ body {
    TYPOGRAPHY
    ========================================= */
 h1, h2, h3 {
-    color: var(--primary-dark);
+    color: var(--text-main);
 }
 
 .main-title {
@@ -123,14 +123,14 @@ h1, h2, h3 {
     align-items: center;
     gap: 12px;
     font-weight: 700;
-    color: var(--primary-dark);
+    color: var(--text-main);
     font-size: 1.1rem;
 }
 
 .logo-icon {
     width: 32px;
     height: 32px;
-    background-color: var(--bg-color);
+    background-color: #ffffff;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -190,7 +190,7 @@ h1, h2, h3 {
 
 .info-text strong {
     display: block;
-    color: var(--primary-dark);
+    color: var(--text-main);
     font-size: 1rem;
     margin-bottom: 4px;
 }
@@ -230,7 +230,7 @@ button {
 
 .btn-secondary {
     background-color: var(--border-color);
-    color: var(--primary-dark);
+    color: var(--text-main);
     width: 100%;
     padding: 16px;
     border-radius: var(--radius-md);
@@ -244,7 +244,7 @@ button {
 
 .btn-outline {
     background-color: transparent;
-    color: var(--primary-dark);
+    color: var(--text-main);
     width: 100%;
     padding: 16px;
     border-radius: var(--radius-md);
@@ -347,9 +347,15 @@ button {
 }
 
 .options-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 12px;
+}
+
+@media (min-width: 600px) {
+    .options-container {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 .option-btn {
@@ -386,9 +392,9 @@ button {
 
 /* Option States */
 .option-btn.correct {
-    background-color: #d1fae5;
+    background-color: rgba(16, 185, 129, 0.15);
     border-color: var(--success-color);
-    color: #065f46;
+    color: #34d399;
 }
 
 .option-btn.correct .option-letter {
@@ -397,9 +403,9 @@ button {
 }
 
 .option-btn.wrong {
-    background-color: #fee2e2;
+    background-color: rgba(239, 68, 68, 0.15);
     border-color: var(--error-color);
-    color: #991b1b;
+    color: #f87171;
 }
 
 .option-btn.wrong .option-letter {
@@ -499,6 +505,7 @@ button {
 }
 
 .search-bar input {
+    background-color: transparent;
     border: none;
     outline: none;
     width: 100%;
@@ -508,9 +515,15 @@ button {
 }
 
 .catalog-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 16px;
+}
+
+@media (min-width: 600px) {
+    .catalog-container {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 .catalog-card {
@@ -528,7 +541,7 @@ button {
 }
 
 .catalog-card.dark .catalog-title {
-    color: var(--accent-gold);
+    color: #ffffff; /* White text for better contrast on bright blue */
 }
 
 .catalog-card.dark .catalog-meaning {
@@ -549,7 +562,7 @@ button {
 .catalog-title {
     font-size: 1.8rem;
     font-weight: 800;
-    color: var(--primary-dark);
+    color: var(--text-main);
 }
 
 .catalog-meaning {
@@ -613,7 +626,7 @@ button {
 
 .nav-item.active .nav-icon {
     background-color: var(--primary-dark);
-    color: var(--card-bg);
+    color: var(--text-light);
     border-radius: 8px;
 }
 
