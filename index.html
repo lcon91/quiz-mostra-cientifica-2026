@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostra Científica 2026 - Abreviações</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- TOP BAR (Shared mostly, but changes per screen slightly. We will handle via classes or distinct headers per view) -->
+
+        <!-- ================= START SCREEN ================= -->
+        <section id="screen-start" class="screen active">
+            <header class="top-bar">
+                <div class="logo-container">
+                    <img src="contemporaneo-logo.jpg" alt="Logo Contemporâneo" class="logo-icon">
+                    <span class="logo-text">Mostra Científica 2026</span>
+                </div>
+            </header>
+            
+            <div class="content start-content">
+                <div class="chip">QUIZ RÁPIDO</div>
+                <h1 class="main-title">Mostra Científica 2026</h1>
+                <p class="subtitle">Teste seus conhecimentos em ciência e tecnologia. Responda às perguntas e ganhe seu certificado de participação.</p>
+                
+                <div class="info-card">
+                    <div class="info-item">
+                        <span class="info-icon">⏱️</span>
+                        <div class="info-text">
+                            <strong>Tempo Médio</strong>
+                            <span>Apenas 3 a 5 minutos</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">✅</span>
+                        <div class="info-text">
+                            <strong>10 Questões</strong>
+                            <span>Múltipla escolha</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">🏆</span>
+                        <div class="info-text">
+                            <strong>Premiação</strong>
+                            <span>Certificado Digital ao concluir</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="btn-start" class="btn-primary">
+                    Começar <span class="play-icon">▶</span>
+                </button>
+                <p class="footer-note">Não é necessário cadastro para iniciar</p>
+            </div>
+        </section>
+
+        <!-- ================= QUIZ SCREEN ================= -->
+        <section id="screen-quiz" class="screen">
+            <header class="top-bar">
+                <div class="logo-container">
+                    <img src="contemporaneo-logo.jpg" alt="Logo Contemporâneo" class="logo-icon">
+                    <span class="logo-text">Mostra Científica 2026</span>
+                </div>
+                <div class="level-chip">LEVEL: INTERMEDIATE</div>
+            </header>
+
+            <div class="content quiz-content">
+                <div class="quiz-header">
+                    <h2>Questão <span id="current-question-num">01</span><span class="total-questions">/10</span></h2>
+                    <div class="progress-bar-container">
+                        <div id="quiz-progress-bar" class="progress-bar"></div>
+                    </div>
+                    <div class="timer-container">
+                        Tempo: <span id="timer-text">10</span>s
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <h3>O que significa <span id="question-abbreviation" class="highlight-abbr">LOL</span> em inglês?</h3>
+                </div>
+
+                <div id="options-container" class="options-container">
+                    <!-- Options injected via JS -->
+                </div>
+
+                <button id="btn-skip" class="btn-text">Pular Questão</button>
+            </div>
+        </section>
+
+        <!-- ================= RESULTS SCREEN ================= -->
+        <section id="screen-results" class="screen">
+            <header class="top-bar">
+                <div class="logo-container">
+                    <img src="contemporaneo-logo.jpg" alt="Logo Contemporâneo" class="logo-icon">
+                    <span class="logo-text">Mostra Científica 2026</span>
+                </div>
+            </header>
+
+            <div class="content results-content">
+                <div class="result-card">
+                    <div class="chip">QUIZ FINALIZADO</div>
+                    <h1 class="result-title">Parabéns!</h1>
+                    <p class="result-desc">Você conhece muito bem as abreviações em inglês! Seu desempenho acadêmico nesta mostra foi excepcional.</p>
+                    
+                    <div class="action-buttons">
+                        <button id="btn-play-again" class="btn-primary">↻ Jogar Novamente</button>
+                        <button id="btn-go-home" class="btn-secondary">⌂ Voltar ao Início</button>
+                        <button id="btn-go-learn" class="btn-outline">📖 Ver Base de Abreviações</button>
+                    </div>
+                </div>
+
+                <div class="score-card">
+                    <div class="score-label">SUA PONTUAÇÃO</div>
+                    <div class="score-value"><span id="final-score">8</span><span class="score-total">/10</span></div>
+                    <div class="progress-bar-container dark-bg">
+                        <div id="score-progress-bar" class="progress-bar golden"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= LEARN SCREEN ================= -->
+        <section id="screen-learn" class="screen">
+            <header class="top-bar">
+                <div class="logo-container">
+                    <img src="contemporaneo-logo.jpg" alt="Logo Contemporâneo" class="logo-icon">
+                    <span class="logo-text">Mostra Científica 2026</span>
+                </div>
+            </header>
+
+            <div class="content learn-content">
+                <h1 class="learn-title">Base de <span class="highlight-text">Abreviações</span></h1>
+                <p class="learn-subtitle">Explore o dicionário essencial do mundo digital acadêmico. Domine os termos mais utilizados em comunicações globais.</p>
+
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="search-input" placeholder="Buscar abreviação ou significado...">
+                </div>
+
+                <div id="catalog-container" class="catalog-container">
+                    <!-- Cards injected via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= BOTTOM NAVIGATION ================= -->
+        <nav class="bottom-nav">
+            <button class="nav-item" data-target="screen-start">
+                <span class="nav-icon">⌂</span>
+                <span class="nav-label">Home</span>
+            </button>
+            <button class="nav-item" data-target="screen-learn">
+                <span class="nav-icon">📖</span>
+                <span class="nav-label">Library</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
