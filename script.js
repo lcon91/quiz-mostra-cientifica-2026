@@ -36,7 +36,7 @@ function init() {
     setupNavigation();
     setupButtons();
     populateCatalog();
-    
+
     // Select Home nav by default
     document.querySelector('.nav-item[data-target="screen-start"]').classList.add('active');
 }
@@ -46,12 +46,12 @@ function navigateTo(screenId) {
     screens.forEach(s => s.classList.remove('active'));
     document.getElementById(screenId).classList.add('active');
     currentScreen = screenId;
-    
+
     // Reset or start behaviors based on screen
     if (screenId !== 'screen-quiz') {
         stopTimer();
     }
-    
+
     // Update bottom nav (only if it has a matching target)
     navItems.forEach(item => {
         if (!item.disabled) {
@@ -70,7 +70,7 @@ function setupNavigation() {
                 navigateTo(item.dataset.target);
             } else if (currentScreen === 'screen-quiz' && !item.disabled) {
                 // If leaving quiz midway, confirm or just leave? Let's just leave and reset.
-                if(confirm("Deseja sair do quiz? Seu progresso será perdido.")) {
+                if (confirm("Deseja sair do quiz? Seu progresso será perdido.")) {
                     navigateTo(item.dataset.target);
                 }
             }
@@ -83,9 +83,9 @@ function setupButtons() {
     btnPlayAgain.addEventListener('click', startQuiz);
     btnGoHome.addEventListener('click', () => navigateTo('screen-start'));
     btnGoLearn.addEventListener('click', () => navigateTo('screen-learn'));
-    
+
     btnSkip.addEventListener('click', () => {
-        if(!isAnswered) {
+        if (!isAnswered) {
             isAnswered = true;
             stopTimer();
             showCorrectAnswer();
@@ -114,7 +114,7 @@ function startQuiz() {
     quizQuestions = shuffleArray(questions).slice(0, 10);
     currentQuestionIndex = 0;
     score = 0;
-    
+
     navigateTo('screen-quiz');
     loadQuestion();
 }
@@ -122,17 +122,17 @@ function startQuiz() {
 function loadQuestion() {
     isAnswered = false;
     const q = quizQuestions[currentQuestionIndex];
-    
+
     // Update UI
     currentQuestionNumEl.textContent = String(currentQuestionIndex + 1).padStart(2, '0');
     quizProgressBar.style.width = `${((currentQuestionIndex) / 10) * 100}%`;
     questionAbbreviation.textContent = q.abbreviation;
-    
+
     // Render Options
     optionsContainer.innerHTML = '';
     const letters = ['A', 'B', 'C', 'D'];
     const shuffledOptions = shuffleArray(q.options);
-    
+
     shuffledOptions.forEach((optText, index) => {
         const btn = document.createElement('button');
         btn.className = 'option-btn';
@@ -140,11 +140,11 @@ function loadQuestion() {
             <div class="option-letter">${letters[index]}</div>
             <div class="option-text">${optText}</div>
         `;
-        
+
         btn.addEventListener('click', () => handleAnswer(optText, q.meaning, btn));
         optionsContainer.appendChild(btn);
     });
-    
+
     startTimer();
 }
 
@@ -152,7 +152,7 @@ function handleAnswer(selectedOption, correctOption, btnElement) {
     if (isAnswered) return;
     isAnswered = true;
     stopTimer();
-    
+
     const isCorrect = selectedOption === correctOption;
     if (isCorrect) {
         score++;
@@ -161,9 +161,9 @@ function handleAnswer(selectedOption, correctOption, btnElement) {
         btnElement.classList.add('wrong');
         showCorrectAnswer(correctOption);
     }
-    
+
     disableAllOptions();
-    
+
     // Wait ~1.5s then next
     setTimeout(nextQuestion, 1500);
 }
@@ -172,7 +172,7 @@ function showCorrectAnswer(correctOption = null) {
     // If correctOption is null, find it via the data
     const q = quizQuestions[currentQuestionIndex];
     const correctText = correctOption || q.meaning;
-    
+
     const optionBtns = document.querySelectorAll('.option-btn');
     optionBtns.forEach(btn => {
         if (btn.querySelector('.option-text').textContent === correctText) {
@@ -199,7 +199,18 @@ function nextQuestion() {
 function showResults() {
     finalScoreEl.textContent = score;
     quizProgressBar.style.width = '100%'; // Complete the quiz bar visually before hiding
-    
+
+    const resultTitle = document.getElementById('result-title');
+    const resultDesc = document.getElementById('result-desc');
+
+    if (score < 6) {
+        resultTitle.textContent = "Não se preocupe!";
+        resultDesc.textContent = "Você ainda pode melhorar. Aproveite para consultar a nossa Base de Abreviações e aprender muito mais!";
+    } else {
+        resultTitle.textContent = "Parabéns!";
+        resultDesc.textContent = "Você conhece muito bem as abreviações em inglês! Seu desempenho nesta mostra foi excepcional.";
+    }
+
     setTimeout(() => {
         scoreProgressBar.style.width = `${(score / 10) * 100}%`;
         navigateTo('screen-results');
@@ -211,11 +222,11 @@ function startTimer() {
     stopTimer(); // Ensure clear
     timeLeft = 10;
     timerText.textContent = timeLeft;
-    
+
     timerInterval = setInterval(() => {
         timeLeft--;
         timerText.textContent = timeLeft;
-        
+
         if (timeLeft <= 0) {
             stopTimer();
             if (!isAnswered) {
@@ -237,21 +248,21 @@ function stopTimer() {
 // Learn Mode Logic
 function populateCatalog(filterText = '') {
     catalogContainer.innerHTML = '';
-    
+
     // Sort alphabetically
     const sortedQuestions = [...questions].sort((a, b) => a.abbreviation.localeCompare(b.abbreviation));
-    
+
     const filtered = sortedQuestions.filter(q => {
         const text = filterText.toLowerCase();
         return q.abbreviation.toLowerCase().includes(text) || q.meaning.toLowerCase().includes(text);
     });
-    
+
     filtered.forEach((q, index) => {
         const card = document.createElement('div');
         // Make every alternating card slightly different or specifically the first one dark based on inspiration
         // For variety, let's make 1 in 5 cards dark
         card.className = `catalog-card ${index % 5 === 0 ? 'dark' : ''}`;
-        
+
         card.innerHTML = `
             <div class="catalog-header">
                 <div class="catalog-title">${q.abbreviation}</div>
@@ -262,7 +273,7 @@ function populateCatalog(filterText = '') {
                 Ex: "${q.examples.split('|').join('" / "')}"
             </div>
         `;
-        
+
         catalogContainer.appendChild(card);
     });
 }
