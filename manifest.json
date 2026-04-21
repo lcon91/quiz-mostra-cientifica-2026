@@ -1,0 +1,16 @@
+{
+  "name": "Mostra Científica 2026 - Abreviações",
+  "short_name": "Quiz de Abreviações",
+  "description": "Teste seus conhecimentos em expressões e abreviações em inglês.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "assets/imgs/quiz-icon.png",
+      "sizes": "500x500",
+      "type": "image/png"
+    }
+  ]
+}
