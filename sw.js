@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mc2026-v1';
+const CACHE_NAME = 'mc2026-v2';
 const ASSETS = [
     './',
     './index.html',
@@ -6,7 +6,9 @@ const ASSETS = [
     './assets/css/styles.css',
     './assets/js/script.js',
     './assets/js/data.js',
-    './assets/imgs/contemporaneo-logo.jpg'
+    './assets/imgs/contemporaneo-logo.jpg',
+    './assets/imgs/quiz-icon-192.png',
+    './assets/imgs/quiz-icon-512.png'
 ];
 
 self.addEventListener('install', (event) => {
